@@ -88,8 +88,8 @@ class PageTwo(BasePage):
 
         if self._validate_form():
             self.parent.go_next()
-        else:
-            self._show_error()
+        
+        self._show_error()
 
     #Lookup service details by its name
     def _lookup_service_by_name(self, name):
