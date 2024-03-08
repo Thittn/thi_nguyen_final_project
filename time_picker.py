@@ -3,14 +3,20 @@ import ttkbootstrap as ttk
 class TimePicker(ttk.Frame):
     def __init__(self, parent, *args, **kwargs):
         ttk.Frame.__init__(self, parent, *args, **kwargs)
+        # Create Spinboxes for hour and minute selection
         self.hour = ttk.Spinbox(self, from_=0, to=23, width=2, format="%02.0f")
         self.minute = ttk.Spinbox(self, from_=0, to=59, width=2, format="%02.0f")
+        # Pack Spinboxes to the left side
         self.hour.pack(side="left")
         self.minute.pack(side="left")
 
+    #Get the selected time
     def get_time(self):
-        return (self.hour.get() or '0') + ':' + (self.minute.get() or '0')
+        # Concatenate hour and minute values and return as string
+        return (self.hour.get() or '') + ':' + (self.minute.get() or '')
 
+    #Set the time in the TimePicker
     def set_time(self, values):
+        # Set hour and minute values from the given list
         self.hour.insert(0, values[0])
         self.minute.insert(0, values[1])
