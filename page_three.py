@@ -1,3 +1,13 @@
+# File: page_three.py
+# Author: Thi Nguyen
+# Date: 03/08/2024
+# Description: This file contains the implementation of the PageThree class,
+#              which represents the third page of the Glow Nail Spa Reservation System.
+#              It includes functionality for rendering the title, body, and footer sections
+#              of the page, displaying the confirmed reservation details to the user,
+#              and allowing them to go back or exit the application
+
+
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 import tkinter.font as tkFont

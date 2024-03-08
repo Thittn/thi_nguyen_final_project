@@ -1,3 +1,10 @@
+# File: time_picker.py
+# Author: Thi Nguyen
+# Date: 03/08/2024
+# Description: This file contains the implementation of the TimePicker class,
+#              which provides a widget for selecting time (hour and minute) using Spinboxes
+
+
 import ttkbootstrap as ttk
 
 class TimePicker(ttk.Frame):

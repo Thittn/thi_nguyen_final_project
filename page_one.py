@@ -1,3 +1,13 @@
+# File: page_one.py
+# Author: Thi Nguyen
+# Date: 03/08/2024
+# Description: This file contains the implementation of the PageOne class,
+#              which represents the first page of the Glow Nail Spa Reservation System.
+#              It includes functionality for rendering the title, body, and footer sections
+#              of the page, displaying welcome text, services offered, and a button to navigate
+#              to the next page
+
+
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 import tkinter.font as tkFont

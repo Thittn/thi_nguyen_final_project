@@ -1,3 +1,12 @@
+# File: main.py
+# Author: Thi Nguyen
+# Date: 03/08/2024
+# Description: This file contains the main application logic for the Glow Nail Spa Reservation System.
+#              It defines the App class, which serves as the main application window and controls
+#              navigation between different pages. It also includes the Booking class for storing
+#              booking details, and imports necessary modules and classes for the application
+
+
 import ttkbootstrap as ttk
 from page_one import PageOne
 from page_two import PageTwo

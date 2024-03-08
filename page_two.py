@@ -1,3 +1,14 @@
+# File: page_two.py
+# Author: Thi Nguyen
+# Date: 03/08/2024
+# Description: This file contains the implementation of the PageTwo class,
+#              which represents the second page of the Glow Nail Spa Reservation System.
+#              It includes functionality for rendering the title, body, and footer sections
+#              of the page, allowing users to choose date, time, services, and enter personal
+#              information for making a reservation. It also includes validation for user input
+#              such as name, phone number, and email address
+
+
 import ttkbootstrap as ttk
 import tkinter as tk
 from ttkbootstrap.constants import *
@@ -99,25 +110,53 @@ class PageTwo(BasePage):
         return None
 
 
+    #Validate data type
     def _validate_form(self):
         self.error = []
-        if self.parent.booking.name is None or self.parent.booking.name == '':
+
+        # Validate name
+        if not self.parent.booking.name or not self.parent.booking.name.strip():
             self.error.append('Please enter your name')
-        if self.parent.booking.phone is None or self.parent.booking.phone == '':
-            self.error.append('Please enter your phone')
-        if self.parent.booking.phone is None or self.parent.booking.phone == '':
+
+        # Validate phone number
+        if not self.parent.booking.phone or not self.parent.booking.phone.strip():
+            self.error.append('Please enter your phone number')
+        elif not self._is_valid_phone(self.parent.booking.phone.strip()):
+            self.error.append('Please enter a valid phone number')
+
+        # Validate email
+        if not self.parent.booking.email or not self.parent.booking.email.strip():
             self.error.append('Please enter your email')
-        if self.parent.booking.time == ':':
-            self.error.append('Please enter your booking time')
-        if len(self.parent.booking.services) == 0:
+        elif not self._is_valid_email(self.parent.booking.email.strip()):
+            self.error.append('Please enter a valid email')
+
+        # Validate booking time
+        if not self.parent.booking.time or self.parent.booking.time == ':':
+            self.error.append('Please select your booking time')
+
+        # Validate selected services
+        if not self.parent.booking.services:
             self.error.append('Please choose services to book')
 
         return len(self.error) == 0
-
+   
+    # Show error messages
     def _show_error(self):
         # Clear existing error
         for widget in self.bottom_container.winfo_children():
             widget.destroy()
 
+        #Display new error message
         for err in self.error:
             ttk.Label(self.bottom_container, text=' - '+err, style=DANGER).pack(padx=60, anchor=W)
+
+
+    # Helper method to validate phone number
+    def _is_valid_phone(self, phone):
+        return phone.isdigit() and len(phone) == 10
+
+    # Helper method to validate email
+    def _is_valid_email(self, email):
+        import re
+        email_format = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return re.match(email_format, email)

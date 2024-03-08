@@ -1,3 +1,12 @@
+# File: base_page.py
+# Author: Thi Nguyen
+# Date: 03/08/2024
+# Description: This file contains the implementation of the BasePage class,
+#              which serves as a template for formatting the layout of all pages
+#              in the Glow Nail Spa Reservation System. It provides common functionality
+#              for rendering page elements such as the title, body, and footer.
+
+
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from constants import *
